@@ -1,0 +1,70 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      lang="en" data-namespace-typo3-fluid="true">
+<head>
+    <meta charset="utf-8">
+    <title>Template: Card</title>
+    <--
+        "NoWrapper" layout must always be used when:
+        * using the container extension and the “Card Grid” container, the div container with the class `.col` must follow “row row-cols-1 …”
+        * the content element is used in “Insert record” (todo)
+
+        Without this special treatment, the card elements would not be displayed in multiple columns or would not be flush
+    -->
+</head>
+<body>
+
+
+<f:layout name="{f:if(condition: '{directParent.CType} == \'ot-sitekit-base-container-grid-cards\'', then: 'NoWrapper', else: 'Default')}"/>
+
+<f:section name="Header"/>
+
+<f:section name="Main">
+    <f:if condition="{directParent.CType} == 'ot-sitekit-base-container-grid-cards'">
+        <f:variable name="isInCardsContainer" value="true" />
+    </f:if>
+
+    <div class="card {f:if(condition: '{isInCardsContainer} == \'true\'', then: 'h-100')} ce-{data.uid}">
+        <f:if condition="{isInCardsContainer} == 'true'">
+            <span id="c{data.uid}" class="anchor"></span>
+        </f:if>
+        <f:if condition="{data.subheader}">
+            <div class="card-header">
+                {data.subheader}
+            </div>
+        </f:if>
+        <f:if condition="{files.0}">
+            <f:alias map="{file : files.0}">
+                <f:link.typolink parameter="{file.properties.link}">
+                    <f:image image="{file}" class="img-fluid{f:if(condition: '{data.subheader} == \'\'', then: ' card-img-top')}" maxWidth="1296"/>
+                </f:link.typolink>
+            </f:alias>
+        </f:if>
+        <div class="card-body">
+            <f:if condition="{data.header_layout} != 100">
+                <f:if condition="{data.header_layout} == 0">
+                    <f:then>
+                        <h{settings.defaultHeaderType} class="h5 card-title">
+                            <f:link.typolink parameter="{data.header_link}">{data.header}</f:link.typolink>
+                        </h{settings.defaultHeaderType}>
+                    </f:then>
+                    <f:else>
+                        <h{data.header_layout} class="h5 card-title">
+                            <f:link.typolink parameter="{data.header_link}">{data.header}</f:link.typolink>
+                        </h{data.header_layout}>
+                    </f:else>
+                </f:if>
+            </f:if>
+
+            <div class="card-text">
+                {data.bodytext -> f:format.html()}
+                <f:if condition="{irreButtons}">
+                    <f:render partial="IrreButtons" section="Main" arguments="{data : data, irreButtons : irreButtons}"/>
+                </f:if>
+            </div>
+        </div>
+    </div>
+</f:section>
+
+</body>
+</html>

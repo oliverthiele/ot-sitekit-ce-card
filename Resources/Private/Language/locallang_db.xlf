@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" target-language="de" datatype="plaintext"
+		  original="EXT:ot_sitekitcecard/Resources/Private/Language/locallang_db.xlf" date="2025-10-10T10:39:17Z"
+		  product-name="ot-sitekitcecard">
+		<header/>
+		<body>
+			<trans-unit id="tt_content.CType.label" resname="tt_content.CType.label" approved="yes">
+				<source>Card</source>
+			</trans-unit>
+			<trans-unit id="tt_content.CType.description" resname="tt_content.CType.description" approved="yes">
+				<source>Content element displaying a card with optional image and buttons.</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
