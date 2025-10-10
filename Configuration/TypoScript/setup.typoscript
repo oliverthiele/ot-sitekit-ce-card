@@ -1,0 +1,22 @@
+tt_content.ot_sitekitcecard =< lib.sitekitContentElement
+tt_content.ot_sitekitcecard {
+  templateName = CeCard
+  layoutRootPaths {
+    20 = EXT:ot_sitekitcecard/Resources/Private/Templates/{$sitekit.frameworks.frontend.directory}/Layouts/
+  }
+
+  partialRootPaths {
+    20 = EXT:ot_sitekitcecard/Resources/Private/Templates/{$sitekit.frameworks.frontend.directory}/Partials/
+  }
+
+  templateRootPaths {
+    20 = EXT:ot_sitekitcecard/Resources/Private/Templates/{$sitekit.frameworks.frontend.directory}/Templates/
+  }
+
+  dataProcessing {
+    10 = files
+    10 {
+      references.fieldName = assets
+    }
+  }
+}
