@@ -1,6 +1,6 @@
 <?php
 
-$EM_CONF[$_EXTKEY] = [
+$EM_CONF['ot_cesitekitcecard'] = [
     'title' => 'CE Card',
     'description' => 'TYPO3 content element that displays a card element. Integrates with the Sitekit and ot-irrebuttons extensions.',
     'category' => 'frontend',
@@ -13,7 +13,7 @@ $EM_CONF[$_EXTKEY] = [
         'depends' => [
             'typo3' => '13.4.0-13.4.99',
             'ot_sitekit_base' => '*',
-            'ot_irrebuttons' => '3.2.0-3.2.99'
+            'ot_irrebuttons' => '3.2.0-3.2.99',
         ],
         'conflicts' => [],
         'suggests' => [],

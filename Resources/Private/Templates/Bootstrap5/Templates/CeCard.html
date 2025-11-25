@@ -14,8 +14,7 @@
 </head>
 <body>
 
-
-<f:layout name="{f:if(condition: '{directParent.CType} == \'ot-sitekit-base-container-grid-cards\'', then: 'NoWrapper', else: 'Default')}"/>
+<f:layout name="{f:if(condition: '{isInCardsContainer} == \'true\'', then: 'NoWrapper', else: 'Default')}"/>
 
 <f:section name="Header"/>
 
@@ -33,12 +32,21 @@
                 {data.subheader}
             </div>
         </f:if>
-        <f:if condition="{files.0}">
-            <f:alias map="{file : files.0}">
-                <f:link.typolink parameter="{file.properties.link}">
-                    <f:image image="{file}" class="img-fluid{f:if(condition: '{data.subheader} == \'\'', then: ' card-img-top')}" maxWidth="1296"/>
-                </f:link.typolink>
-            </f:alias>
+        <f:comment> <!-- <![CDATA[
+            At a resolution of 575 pixels, the image size is largest at 551 pixels due to the 3 card grid columns.
+        ]]>	--> </f:comment>
+        <f:if condition="{files}">
+            <f:variable name="cssClasses">img-fluid{f:if(condition: '{data.subheader} == \'\'', then: ' card-img-top')}</f:variable>
+            <f:render partial="Media/Media" arguments="{
+                files: files,
+                data: data,
+                cropVariants: cropVariants,
+                directParent: directParent,
+                parentElements: parentElements,
+                mode: 'firstImage',
+                class: '{cssClasses}',
+                maxImageWidth: 551
+            }"/>
         </f:if>
         <div class="card-body">
             <f:if condition="{data.header_layout} != 100">
