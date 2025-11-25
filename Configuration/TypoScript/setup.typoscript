@@ -7,6 +7,7 @@ tt_content.ot_sitekitcecard {
 
   partialRootPaths {
     20 = EXT:ot_sitekitcecard/Resources/Private/Templates/{$sitekit.frameworks.frontend.directory}/Partials/
+    60 = EXT:ot_sitekitbase/Resources/Private/ContentElements/{$sitekit.frameworks.frontend.directory}/Partials/
   }
 
   templateRootPaths {
