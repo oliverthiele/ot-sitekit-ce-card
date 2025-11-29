@@ -76,8 +76,6 @@ Verwendet dynamische Layoutauswahl:
     name="{f:if(condition: '{directParent.CType} == 'ot-sitekit-base-container-grid-cards'', then: 'NoWrapper', else: 'Default')}"/>
 ```
 
-Weitere Details wie im englischen README beschrieben.
-
 ---
 
 ## 🧩 Danksagung
