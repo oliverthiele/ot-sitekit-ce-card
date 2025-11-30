@@ -1,4 +1,6 @@
-# ot_sitekitcecard
+# ot-sitekit-ce-card
+
+Extension-Key: `ot_sitekitcecard`
 
 TYPO3-Inhaltselement zur Darstellung einer **Karte** im Bootstrap-Stil.
 Teil des Sitekit-Ökosystems – integriert sich nahtlos mit `ot-sitekit-base` und
@@ -24,11 +26,11 @@ Teil des Sitekit-Ökosystems – integriert sich nahtlos mit `ot-sitekit-base` u
 
 ## 🧱 Voraussetzungen
 
-| Extension                      | Version              |
-|--------------------------------|----------------------|
-| `typo3/cms-core`               | ^13.4                |
-| `oliverthiele/ot-sitekit-base` | *                    |
-| `oliverthiele/ot-irrebuttons`  | ^3.2 oder `dev-main` |
+| Extension                      | Version |
+|--------------------------------|---------|
+| `typo3/cms-core`               | ^13.4   |
+| `oliverthiele/ot-sitekit-base` | *       |
+| `oliverthiele/ot-irrebuttons`  | ^3.2    |
 
 ---
 
@@ -75,8 +77,6 @@ Verwendet dynamische Layoutauswahl:
 <f:layout
     name="{f:if(condition: '{directParent.CType} == 'ot-sitekit-base-container-grid-cards'', then: 'NoWrapper', else: 'Default')}"/>
 ```
-
-Weitere Details wie im englischen README beschrieben.
 
 ---
 
