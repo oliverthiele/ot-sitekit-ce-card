@@ -23,7 +23,7 @@
         <f:variable name="isInCardsContainer" value="true" />
     </f:if>
 
-    <div class="card {f:if(condition: '{isInCardsContainer} == \'true\'', then: 'h-100')} ce-{data.uid}">
+    <div class="card{f:if(condition: '{isInCardsContainer} == \'true\'', then: ' h-100')} ce-{data.uid}">
         <f:if condition="{isInCardsContainer} == 'true'">
             <span id="c{data.uid}" class="anchor"></span>
         </f:if>
