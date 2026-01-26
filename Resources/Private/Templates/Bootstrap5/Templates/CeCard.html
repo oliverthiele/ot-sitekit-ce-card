@@ -23,7 +23,7 @@
         <f:variable name="isInCardsContainer" value="true" />
     </f:if>
 
-    <div class="card {f:if(condition: '{isInCardsContainer} == \'true\'', then: 'h-100')} ce-{data.uid}">
+    <div class="card{f:if(condition: '{isInCardsContainer} == \'true\'', then: ' h-100')} ce-{data.uid}">
         <f:if condition="{isInCardsContainer} == 'true'">
             <span id="c{data.uid}" class="anchor"></span>
         </f:if>
@@ -52,16 +52,25 @@
             <f:if condition="{data.header_layout} != 100">
                 <f:if condition="{data.header_layout} == 0">
                     <f:then>
-                        <h{settings.defaultHeaderType} class="h5 card-title">
-                            <f:link.typolink parameter="{data.header_link}">{data.header}</f:link.typolink>
-                        </h{settings.defaultHeaderType}>
+                        <f:variable name="headerLayout" value="h{settings.defaultHeaderType}"/>
                     </f:then>
                     <f:else>
-                        <h{data.header_layout} class="h5 card-title">
-                            <f:link.typolink parameter="{data.header_link}">{data.header}</f:link.typolink>
-                        </h{data.header_layout}>
+                        <f:variable name="headerLayout" value="h{settings.defaultHeaderType}"/>
                     </f:else>
                 </f:if>
+                <f:if condition="{directParent.header_layout} > 0">
+                    <f:variable name="headerLayout" value="h{directParent.header_layout}"/>
+                </f:if>
+                <{headerLayout} class="h5 card-title ot-cecard-title icon-responsive">
+                    <f:if condition="{data.icon_identifier}">
+                        <f:then>
+                            <f:render section="WithIcon" arguments="{data: data}"/>
+                        </f:then>
+                        <f:else>
+                            <f:render section="WithoutIcon" arguments="{data: data}"/>
+                        </f:else>
+                    </f:if>
+                </{headerLayout}>
             </f:if>
 
             <div class="card-text">
@@ -72,6 +81,19 @@
             </div>
         </div>
     </div>
+</f:section>
+
+<f:section name="WithIcon">
+    <span class="ot-cecard-icon">
+          <f:render partial="Icon" section="Main" arguments="{iconIdentifier: data.icon_identifier}" />
+    </span>
+    <span class="ot-cecard-title-text">
+        <f:link.typolink parameter="{data.header_link}">{data.header}</f:link.typolink>
+    <span>
+</f:section>
+
+<f:section name="WithoutIcon">
+    <f:link.typolink parameter="{data.header_link}">{data.header}</f:link.typolink>
 </f:section>
 
 </body>
