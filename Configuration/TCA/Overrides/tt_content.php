@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use OliverThiele\OtSitekitbase\Backend\Preview\GenericPreviewRenderer;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 defined('TYPO3') or die();
@@ -54,3 +55,5 @@ $GLOBALS['TCA']['tt_content']['types'][$key]['columnsOverrides'] = [
         ],
     ],
 ];
+
+$GLOBALS['TCA']['tt_content']['types'][$key]['previewRenderer'] = GenericPreviewRenderer::class;
