@@ -1,160 +1,71 @@
-# ot-sitekit-ce-card
+# OT SiteKit CE Card — TYPO3 Content Element
 
-Extension key: `ot_sitekitcecard`
+Bootstrap 5 card content element for TYPO3 v13. Part of
+the [SiteKit ecosystem](https://packagist.org/packages/oliverthiele/ot-sitekit-base).
 
-TYPO3 content element for rendering a **Bootstrap 5 card**. Part of the
-**Sitekit ecosystem** -- integrates seamlessly with `ot-sitekit-base`
-and `ot-irrebuttons`.
+[![TYPO3](https://img.shields.io/badge/TYPO3-13.4-orange.svg)](https://typo3.org/)
+[![Packagist Version](https://img.shields.io/packagist/v/oliverthiele/ot-sitekit-ce-card.svg)](https://packagist.org/packages/oliverthiele/ot-sitekit-ce-card)
+[![License](https://img.shields.io/packagist/l/oliverthiele/ot-sitekit-ce-card.svg)](LICENSE)
 
-------------------------------------------------------------------------
+---
 
-## 🧩 Features
+## Features
 
-- Responsive **Bootstrap card layout** with `.card`, `.card-body`,
-  `.card-img-top`, etc.
-- Works:
-    - as a **standalone content element**
-    - **inside the Card Grid container**
-      (`ot-sitekit-base-container-grid-cards`)
-- Automatic wrapper handling via **dynamic Fluid layout selection**
-  (`NoWrapper` vs.`Default`)
-- Supports:
-    - **Header** with optional icon
-    - **Subheader**
-    - **Body text** (RTE-enabled)
-    - **Image** (TYPO3 FAL, optional link)
-    - **IRRE buttons** via `ot-irrebuttons`
-- Flexible **icon positioning** for card titles:
-    - Icon above title
-    - Icon above title (centered)
-    - Icon inline (left of title)
-    - Responsive switching (top → left)
+- **Bootstrap 5 card layout** — `.card`, `.card-body`, `.card-img-top`
+- **Standalone or grid** — works as a standalone content element or inside a
+  Card Grid container (`ot-sitekit-base-container-grid-cards`)
+- **Dynamic layout selection** — automatically switches between `NoWrapper` and
+  `Default` Fluid layout depending on the parent container
+- **Header** with optional icon, subheader, body text (RTE), image (FAL,
+  optional link)
+- **IRRE buttons** via `ot-irrebuttons`
+- **Flexible icon positioning** — above title, above title (centered), inline
+  left, or responsive (top on mobile, inline on desktop)
+- **Backend preview renderer** — card preview directly in the TYPO3 page module
 
-------------------------------------------------------------------------
+---
 
-## 🧱 Requirements
+## Requirements
 
-| Extension                      | Version |
+| Package                        | Version |
 |--------------------------------|---------|
-| `typo3/cms-core`               | ^13.4   |
-| `oliverthiele/ot-sitekit-base` | *       |
-| `oliverthiele/ot-irrebuttons`  | ^3.2    |
+| `typo3/cms-core`               | `^13.4` |
+| `oliverthiele/ot-sitekit-base` | `*`     |
+| `oliverthiele/ot-irrebuttons`  | `^3.2`  |
 
-------------------------------------------------------------------------
+---
 
-## ⚙️ Installation
-
-Via Composer:
+## Installation
 
 ```bash
-composer require oliverthiele/ot-sitekitcecard
+composer require oliverthiele/ot-sitekit-ce-card
 ```
 
-When developing with a local `packages/` directory, use a `path`
-repository entry.
+The content element **Card** appears automatically in the *New Content Element*
+wizard.
 
-After installation, clear the TYPO3 caches:
+---
 
-```bash
-vendor/bin/typo3 cache:flush
-```
+## Icon positioning
 
-The content element **"Card"** appears automatically in the *"New
-Content Element"* wizard with translated labels.
+Card titles support an optional icon. The layout is controlled via CSS modifier
+classes:
 
-------------------------------------------------------------------------
+| Class             | Behaviour                             |
+|-------------------|---------------------------------------|
+| `icon-top`        | Icon above title (left-aligned)       |
+| `icon-top-center` | Icon above title (centred)            |
+| `icon-left`       | Icon inline, left of title            |
+| `icon-responsive` | Icon top on mobile, inline on desktop |
 
-## 🧩 TYPO3 Registration Overview
+Icon output is delegated to the `Icon` partial provided by `ot-sitekit-base`.
 
-- CType: `ot_sitekitcecard`
-- Icon: `ot-sitekit-ce-card` (registered in `Configuration/Icons.php`)
-- RTE enabled for `bodytext`
-- File field `assets`
-    - Allowed types: `jpg`, `jpeg`, `png`, `gif`, `svg`
-- IRRE palette `irreButtons` after `bodytext`
+---
 
-------------------------------------------------------------------------
+## License
 
-## 🧠 Template & Rendering Logic
+GPL-2.0-or-later — see [LICENSE](LICENSE)
 
-Template file:
+## Author
 
-    Resources/Private/Templates/Bootstrap5/Templates/CeCard.html
-
-The template dynamically switches its Fluid layout depending on the
-parent container:
-
-```html
-
-<f:layout
-    name="{f:if(
-        condition: '{directParent.CType} == \'ot-sitekit-base-container-grid-cards\'',
-        then: 'NoWrapper',
-        else: 'Default'
-    )}"/>
-```
-
-This ensures: - proper grid behavior inside card containers - flush
-alignment without nested column wrappers - correct rendering when used
-via *Insert record*
-
-------------------------------------------------------------------------
-
-## 🎨 Icon-enhanced Card Titles
-
-Card titles can render an optional icon.
-
-The icon output is delegated to a partial provided by **ot-sitekit-base**.
-Depending on your project setup, that partial may render e.g.:
-
-- an `<i>` tag based icon (CSS icon font / classes), or
-- a ViewHelper output from `EXT:ot-icons`
-
-In this extension, the title icon is rendered via:
-
-```html
-
-<f:render partial="Icon" section="Main"
-          arguments="{iconIdentifier: data.icon_identifier}"/>
-```
-
-### Markup structure
-
-```html
-<h2 class="h5 card-title ot-cecard-title icon-responsive">
-    <span class="ot-cecard-icon">
-        <!-- icon output (from ot-sitekit-base partial) -->
-    </span>
-    <span class="ot-cecard-title-text">
-        Card title
-    </span>
-</h2>
-```
-
-### Available modifier classes
-
-Class Behavior
-  ------------------- ---------------------------------------
-`icon-top`          Icon above title (left aligned)
-`icon-top-center`   Icon above title (centered)
-`icon-left`         Icon inline, left of title
-`icon-responsive`   Icon top on mobile, inline on desktop
-
-The layout is implemented using **CSS Grid** for clarity and
-extensibility.
-
-------------------------------------------------------------------------
-
-## 🧩 Related Extensions
-
-- `oliverthiele/ot-sitekit-base`
-- `oliverthiele/ot-irrebuttons`
-
-------------------------------------------------------------------------
-
-## 🧩 License & Author
-
-Developed by\
-**Oliver Thiele** -- https://www.oliver-thiele.de
-
-License: **GPL-2.0-or-later**
+Oliver Thiele — [oliver-thiele.de](https://www.oliver-thiele.de)
