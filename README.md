@@ -1,9 +1,9 @@
 # OT SiteKit CE Card — TYPO3 Content Element
 
-Bootstrap 5 card content element for TYPO3 v13 and v14. Part of
+Bootstrap 5 card content element for TYPO3 v14. Part of
 the [SiteKit ecosystem](https://packagist.org/packages/oliverthiele/ot-sitekit-base).
 
-[![TYPO3](https://img.shields.io/badge/TYPO3-13.4%20%7C%2014.3-orange.svg)](https://typo3.org/)
+[![TYPO3](https://img.shields.io/badge/TYPO3-14.3-orange.svg)](https://typo3.org/)
 [![Packagist Version](https://img.shields.io/packagist/v/oliverthiele/ot-sitekit-ce-card.svg)](https://packagist.org/packages/oliverthiele/ot-sitekit-ce-card)
 [![PHP](https://img.shields.io/packagist/dependency-v/oliverthiele/ot-sitekit-ce-card/php.svg)](https://php.net/)
 [![License](https://img.shields.io/packagist/l/oliverthiele/ot-sitekit-ce-card.svg)](LICENSE)
@@ -31,10 +31,10 @@ the [SiteKit ecosystem](https://packagist.org/packages/oliverthiele/ot-sitekit-b
 
 | Package                        | Version          |
 |--------------------------------|------------------|
-| `typo3/cms-core`               | `^13.4 \| ^14.3` |
-| PHP                            | `>=8.3`          |
-| `oliverthiele/ot-sitekit-base` | `*`              |
-| `oliverthiele/ot-irrebuttons`  | `^4.0`           |
+| `typo3/cms-core`               | `^14.3`          |
+| PHP                            | `>=8.4`          |
+| `oliverthiele/ot-sitekit-base` | `^1.0`           |
+| `oliverthiele/ot-irrebuttons`  | `^5.0`           |
 
 ---
 
