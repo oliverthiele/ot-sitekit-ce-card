@@ -13,8 +13,8 @@ ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
-        'label' => 'LLL:EXT:' . $key . '/Resources/Private/Language/locallang_db.xlf:tt_content.CType.label',
-        'description' => 'LLL:EXT:' . $key . '/Resources/Private/Language/locallang_db.xlf:tt_content.CType.description',
+        'label' => $key . '.db:tt_content.CType.label',
+        'description' => $key . '.db:tt_content.CType.description',
         'value' => $key,
         'icon' => 'ot-sitekit-ce-card',
         'group' => 'extras',
@@ -24,7 +24,7 @@ ExtensionManagementUtility::addTcaSelectItem(
 $GLOBALS['TCA']['tt_content']['types'][$key] = [
     'showitem' => '
         --palette--;;headers,bodytext,
-        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:media,assets',
+        --div--;core.form.tabs:media,assets',
 ];
 
 ExtensionManagementUtility::addToAllTCAtypes(

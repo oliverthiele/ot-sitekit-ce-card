@@ -7,6 +7,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [3.0.0] — 2026-07-31
+
+### Changed
+
+- **Breaking:** Drop TYPO3 v13 support, require TYPO3 `^14.3`
+- **Breaking:** Raise the PHP minimum to `>=8.4`
+- **Breaking:** Require `oliverthiele/ot-irrebuttons ^5.0` and
+  `oliverthiele/ot-sitekit-base ^1.0`; the latter replaces the `*` wildcard
+- Migrate the language files from XLIFF 1.2 to XLIFF 2.0. Unit identifiers and
+  all translations are unchanged, so no label reference needs adjusting
+- Reference labels via translation domain mapping instead of full file paths:
+  `ot_sitekitcecard.db:` and `core.form.tabs:` replace the verbose `LLL:EXT:`
+  references
+
+### Fixed
+
+- `ext_emconf.php` declared the extension key as `ot_cesitekitcecard`, while
+  `composer.json` and the TCA use `ot_sitekitcecard`
+- The dependency on the base extension was spelled `ot_sitekit_base` in
+  `ext_emconf.php`; the extension key is `ot_sitekitbase`, so the constraint
+  never applied
+
+---
+
 ## [2.0.0] — 2026-04-25
 
 ### Added
@@ -52,7 +76,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Integration with `ot-irrebuttons` for configurable IRRE button elements
 - Works standalone or within the Card Grid container
 
-[Unreleased]: https://github.com/oliverthiele/ot-sitekit-ce-card/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/oliverthiele/ot-sitekit-ce-card/compare/v3.0.0...HEAD
+[3.0.0]: https://github.com/oliverthiele/ot-sitekit-ce-card/compare/v2.0.0...v3.0.0
 [2.0.0]: https://github.com/oliverthiele/ot-sitekit-ce-card/compare/v1.2.1...v2.0.0
 [1.2.1]: https://github.com/oliverthiele/ot-sitekit-ce-card/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/oliverthiele/ot-sitekit-ce-card/compare/v1.0.0...v1.2.0
