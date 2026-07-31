@@ -1,14 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file source-language="en" target-language="de" datatype="plaintext"
-		  original="EXT:ot_sitekitcecard/Resources/Private/Language/locallang.xlf" date="2025-10-10T10:39:17Z"
-		  product-name="ot-sitekit-ce-card">
-		<header/>
-		<body>
-			<trans-unit id="button.readMore" resname="button.readMore" approved="yes">
-				<source>Read more</source>
-				<target>Weiterlesen</target>
-			</trans-unit>
-		</body>
-	</file>
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en" trgLang="de">
+  <file id="ot-sitekit-ce-card-locallang"
+        original="EXT:ot_sitekitcecard/Resources/Private/Language/locallang.xlf">
+    <unit id="button.readMore">
+      <segment>
+        <source>Read more</source>
+        <target>Weiterlesen</target>
+      </segment>
+    </unit>
+  </file>
 </xliff>
